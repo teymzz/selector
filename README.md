@@ -1,21 +1,18 @@
-# selector.js
-
-The selector.js is a lightweight javascript plugin that extends the flexibility of selecting html elements. Selected elements are converted to array that can be iterated over. In this way it reduces the number of line of codes required to perform certain checks on elements' presence or absence within the dom and keeps the code cleaner and easier to maintain.
+# selectorJs
+The selectorJs plugin is a lightweight javascript plugin that extends the flexibility of selecting html elements. Selected elements are converted to array that can be iterated over. In this way it reduces the number of line of codes required to perform certain checks on elements' presence or absence within the dom and keeps the code cleaner and easier to maintain.
 
 ### Initializing class
-
- This class can be initialized easily as shown below: 
+This class can be initialized easily as shown below: 
 
  ```js
- let selector = Selector;
+ let selector = new Selector();
  ```
 
 ### String selector
-
 Strings are selected similarly to the already known javascript ```document.querySelectorAll()``` query selectors. This selection is done through the use of ```toSelectionArray()``` method or by the use of its alias method which is the shortened ```select()``` method.
 
  ```js
- let selector = Selector;
+ let selector = new Selector();
 
  let divs = selector.toSelectionArray('div');
  ```
@@ -23,7 +20,7 @@ Strings are selected similarly to the already known javascript ```document.query
  > We can do this similiary with the ```select()``` method
 
  ```js
- let selector = Selector;
+ let selector = new Selector();
 
  let divs = selector.select('div'); //same as above
  ```
@@ -38,13 +35,14 @@ Strings are selected similarly to the already known javascript ```document.query
  > We can select all the div element on the html element simply as shown below 
 
  ```js
- let selector = Selector;
+
+ let selector = new Selector();
 
  let divs = selector.select('div');
 
  divs.forEach( div => {
 
-    console.log(div.attribute('class')); 
+    console.log(div.getAttribute('class')); 
 
  })
  ``` 
@@ -53,13 +51,13 @@ Strings are selected similarly to the already known javascript ```document.query
  div element based on their class
 
  ```js
- let selector = Selector;
+ let selector = new Selector;
 
  let items = selector.select('.item');
 
  items.forEach( item => {
 
-    console.log(item.attribute('class')); 
+    console.log(item.getAttribute('class')); 
 
  })
  ```  
@@ -73,7 +71,7 @@ Strings are selected similarly to the already known javascript ```document.query
 
  spans.forEach( span => {
 
-    console.log(span.attribute('class')); 
+    console.log(span.getAttribute('class')); 
 
  })
  ```
@@ -91,7 +89,7 @@ let divs = selector.select(document.querySelector('item'));
 
 divs.forEach( div => {
     
-    console.log(div.attribute('class')); 
+    console.log(div.getAttribute('class')); 
 
 })
 ```
