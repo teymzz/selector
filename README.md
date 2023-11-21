@@ -82,7 +82,7 @@ divs.forEach( div => {
 > In the sample above, although, only the first item is selected, the _selector_ plugin converts this into an array that can be iterated over. This makes it possible to maintain the same code structure and reduces the number of checks or validations that may be required to be done.
 
 
-### JQuery Object Selector 
+### JQuery Selector 
 Jquery is a javascript library that simplifies working with javascript. The _selector.js_ plugin takes advantage of this and makes it possible to convert elements selected with Jquery selector back to Javascript array format. This is shown below
 
 ```js 
@@ -99,3 +99,4 @@ divs.forEach( div => {
 
 > From the sample above, the parsed ```$('.item')``` will be converted back to an array format. It is important to know that when a jquery selection is supplied into the ```select()``` method, it loses its Jquery extended methods and reverts back to the native selection. This is why we used the _getAttribute()_ method rather than the Jquery _attr()_ method in the sample above. We can also see from the sample above that the code structure remains the same. This is the benefit of the _selector_ plugin in which a universal standard code structure is maintained.
 
+The feature above is useful for developers who use Jquery and may need to find a balance between handling Jquery selections and the native Javascript selections. This is also good for Javascript plugins that may need to provide extended support for Jquery users.
