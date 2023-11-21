@@ -70,7 +70,7 @@ When selecting an element using _document.querySelector()_ or _document.getEleme
 ```js 
 let selector = new Selector();
 
-let divs = selector.select(document.querySelector('item'));
+let divs = selector.select(document.querySelector('.item'));
 
 divs.forEach( div => {
     
