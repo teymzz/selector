@@ -1,5 +1,5 @@
 # selectorJs
-The selectorJs plugin is a lightweight javascript plugin that extends the flexibility of selecting html elements. Selected elements are converted to array that can be iterated over. In this way it reduces the number of line of codes required to perform certain checks on elements' presence or absence within the dom and keeps the code cleaner and easier to maintain.
+The selectorJs plugin is a lightweight javascript plugin that extends the flexibility of selecting html elements. Selected elements are converted to array that can be iterated over. In this way it reduces the number of line of codes required to perform certain checks on html elements' presence or absence within the dom and keeps the code cleaner and easier to maintain.
 
 ### Initializing class
 This class can be initialized easily as shown below: 
@@ -8,8 +8,8 @@ This class can be initialized easily as shown below:
  let selector = new Selector();
  ```
 
-### String selector
-Strings are selected similarly to the already known javascript ```document.querySelectorAll()``` query selectors. This selection is done through the use of ```toSelectionArray()``` method or by the use of its alias method which is the shortened ```select()``` method.
+### Query selector
+Html elements can be selected using the already known javascript query selectors. This selection is done through the use of ```toSelectionArray()``` method or by the use of its alias method which is the shortened ```select()``` method.
 
  ```js
  let selector = new Selector();
@@ -17,7 +17,7 @@ Strings are selected similarly to the already known javascript ```document.query
  let divs = selector.toSelectionArray('div');
  ```
 
- > We can do this similiary with the ```select()``` method
+ > We can do this similarly with the ```select()``` method
 
  ```js
  let selector = new Selector();
@@ -32,7 +32,7 @@ Strings are selected similarly to the already known javascript ```document.query
  <div id="div-two" class="item second"></div>
  ``` 
 
- > We can select all the div element on the html element simply as shown below 
+ > We can select all the div elements simply as shown below 
 
  ```js
 
@@ -47,25 +47,10 @@ Strings are selected similarly to the already known javascript ```document.query
  })
  ``` 
 
- > The sample below will display the classes of each div item regardless of the number of div item existing in the html document. Similarly, we can also use the already known query selectors. For example, the code below is used to select the 
- div element based on their class
-
- ```js
- let selector = new Selector;
-
- let items = selector.select('.item');
-
- items.forEach( item => {
-
-    console.log(item.getAttribute('class')); 
-
- })
- ```  
-
  > When an item is not found, an empty array is always returned which helps to keep our code safe from breaking. This is shown below
 
  ```js
- let selector = new Selector;
+ let selector = new Selector();
 
  let spans = selector.select('span');
 
@@ -76,14 +61,14 @@ Strings are selected similarly to the already known javascript ```document.query
  })
  ```
 
- > In the code above, because there is no span element existing in our code, the _forEach()_ condition will never run because the returned selections will be an empty array.
+ > In the code above, because there is no span element existing in our html code, the _forEach()_ condition will never run because the returned selections will be an empty array.
 
-### Single Object Selector 
+### Set Element Selection Standard
 
-When selecting an element using a _document.querySelector()_ or single selectors such as _document.getElementById()_, the first item is usually being returned by default. However, the _selector_ plugin makes handles such objects similarly as an array which helps to maintain out code structure. 
+When selecting an element using _document.querySelector()_ or _document.getElementById()_, the first selected item is usually being returned by default. The _selector_ plugin handles this type of selection similarly as an array which helps to maintain our code structure regardless of the element selector used. 
 
 ```js 
-let selector = new Selector;
+let selector = new Selector();
 
 let divs = selector.select(document.querySelector('item'));
 
@@ -94,12 +79,11 @@ divs.forEach( div => {
 })
 ```
 
-> In the sample above, although, only the first item is selected, the _selector_ plugin converts this into an array that can be iterated over. This makes it possible to maintain the same code structure and reduces the number of checks or validations that may be required to be done. In a similar way, we can also handle the response of element selected using _document.getElementById()_ or even with the _document.querySelectorAll()_ .
+> In the sample above, although, only the first item is selected, the _selector_ plugin converts this into an array that can be iterated over. This makes it possible to maintain the same code structure and reduces the number of checks or validations that may be required to be done.
 
 
 ### JQuery Object Selector 
-
-Jquery is a javascript library that makes it easier to select items. The _selector.js_ plugin takes advantage of this and makes it possible to convert selected items back to javascript iterable items. This is shown below
+Jquery is a javascript library that simplifies working with javascript. The _selector.js_ plugin takes advantage of this and makes it possible to convert elements selected with Jquery selector back to Javascript array format. This is shown below
 
 ```js 
 let selector = new Selector;
@@ -113,5 +97,5 @@ divs.forEach( div => {
 })
 ```
 
-> Assuming we selected an element using the Jquery Library selector, the _selector.js_ helps to convert such selected items back to the native selection in which they can be easily iterated over rather than using the _Jquery.each()_ method. The code sample above shows that we used a jquery selector to select the target element _item_ . The selected object was loaded into the selector plugin which converted this items back to an array that can be iterated over. This makes it easier to keep the same code structure that was used for previous selections. It is also important to note that when the jquery selection object supplied into the selector plugin loses its Jquery extended methods and reverts back to the native selection. This is why we used the _getAttribute()_ method rather than the Jquery _attr()_ method in the sample above.
+> From the sample above, the parsed ```$('item')``` will be converted back to an array format. It is important to know that when a jquery selection is supplied into the ```select()``` method, it loses its Jquery extended methods and reverts back to the native selection. This is why we used the _getAttribute()_ method rather than the Jquery _attr()_ method in the sample above. We can also see from the sample above that the code structure remains the same. This is the benefit of the _selector_ plugin in which a universal standard code structure is maintained.
 
