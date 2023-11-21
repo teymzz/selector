@@ -88,7 +88,7 @@ Jquery is a javascript library that simplifies working with javascript. The _sel
 ```js 
 let selector = new Selector;
 
-let divs = selector.select($('item'));
+let divs = selector.select($('.item'));
 
 divs.forEach( div => {
     
@@ -97,5 +97,5 @@ divs.forEach( div => {
 })
 ```
 
-> From the sample above, the parsed ```$('item')``` will be converted back to an array format. It is important to know that when a jquery selection is supplied into the ```select()``` method, it loses its Jquery extended methods and reverts back to the native selection. This is why we used the _getAttribute()_ method rather than the Jquery _attr()_ method in the sample above. We can also see from the sample above that the code structure remains the same. This is the benefit of the _selector_ plugin in which a universal standard code structure is maintained.
+> From the sample above, the parsed ```$('.item')``` will be converted back to an array format. It is important to know that when a jquery selection is supplied into the ```select()``` method, it loses its Jquery extended methods and reverts back to the native selection. This is why we used the _getAttribute()_ method rather than the Jquery _attr()_ method in the sample above. We can also see from the sample above that the code structure remains the same. This is the benefit of the _selector_ plugin in which a universal standard code structure is maintained.
 
